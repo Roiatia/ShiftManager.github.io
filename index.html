@@ -1,23 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Shift Manager</title>
+    <link rel="stylesheet" href="ShiftManager.css">
 </head>
+
 <body>
     <header>
-        <h1>Welcome</h1>
+        <h1>📅 Shift Management System</h1>
     </header>
-    <main>
-        <section>
-            <p>Your content goes here</p>
+
+    <div class="container">
+        <!-- Message Board -->
+        <section class="message-board">
+            <h2>📢 Message Board</h2>
+            <div class="messages-container" id="messagesContainer">
+                <p class="no-messages">No messages yet.</p>
+            </div>
+            <form id="messageForm" class="message-form">
+                <input type="text" id="messageInput" placeholder="Type your message..." required>
+                <button type="submit" class="btn btn-send">Send</button>
+            </form>
         </section>
-    </main>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Weekly Shift Board -->
+            <section class="weekly-board">
+                <div class="board-header">
+                    <h2>Weekly Shift Schedule</h2>
+                    <div class="week-navigation">
+                        <button class="btn btn-nav" id="prevWeek">← Prev</button>
+                        <span id="weekDisplay" class="week-display">Week of Dec 9, 2024</span>
+                        <button class="btn btn-nav" id="nextWeek">Next →</button>
+                    </div>
+                </div>
+                <div id="shiftBoard" class="shift-board"></div>
+            </section>
+        </div>
+
+        <!-- User Panel -->
+        <aside class="user-panel">
+            <h2>👤 Add Shift</h2>
+            <form id="shiftForm">
+                <div class="form-group">
+                    <label for="employeeName">Employee Name:</label>
+                    <input type="text" id="employeeName" required placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                    <label for="dayOfWeek">Day:</label>
+                    <select id="dayOfWeek" required>
+                        <option value="">Select day</option>
+                        <option value="0">Sunday</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeSlot">Time Slot:</label>
+                    <select id="timeSlot" required>
+                        <option value="">Select slot</option>
+                        <option value="morning">Morning (6AM-2PM)</option>
+                        <option value="afternoon">Afternoon (2PM-10PM)</option>
+                        <option value="evening">Evening (10PM-6AM)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Position:</label>
+                    <input type="text" id="position" placeholder="e.g., Cashier">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Shift</button>
+            </form>
+
+            <div class="employee-list">
+                <h3>Team Members</h3>
+                <div id="employeeList" class="employees">
+                    <p class="no-employees">No employees yet</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
     <footer>
-        <p>&copy; 2024</p>
+        <p> Simple Shift Manager | Built for efficient team scheduling</p>
+        <p>Version 1.0.0</p>
+        <p>&copy; Built by Roi Atia </p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="ShiftManager.js"></script>
 </body>
+
 </html>
